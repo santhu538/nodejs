@@ -4,11 +4,18 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import logger from "morgan";
 import mainRoutes from "./server/routes/main";
+var cors = require("cors");
+
 // set up dependencies
 const app = express();
 app.use(bodyParser.json());
 app.use(logger("dev"));
 app.use("/api/", mainRoutes);
+app.use(
+  cors({
+    origin: "*"
+  })
+);
 
 // set up mongoose
 mongoose
