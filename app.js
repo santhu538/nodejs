@@ -32,14 +32,14 @@ app.use(
 //var server = https.createServer(options, app);
 
 // set up mongoose
-mongoose
+/*mongoose
   .connect("mongodb://localhost/betmygame")
   .then(() => {
     console.log("Database connected");
   })
   .catch(error => {
     console.log("Error connecting to database");
-  });
+  });*/
 // set up port
 const port = 9090;
 // set up route
