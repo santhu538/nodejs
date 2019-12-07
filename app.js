@@ -29,7 +29,7 @@ app.use(
   })
 );
 
-//var server = https.createServer(options, app);
+//var server = https.createServer(options, app); //test
 
 // set up mongoose
 /*mongoose
