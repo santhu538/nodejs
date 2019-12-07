@@ -5,9 +5,21 @@ import mongoose from "mongoose";
 import logger from "morgan";
 import mainRoutes from "./server/routes/main";
 var cors = require("cors");
+const https = require("https");
+const fs = require("fs");
+
+/*var key = fs.readFileSync(__dirname + "/certs/ssl.key");
+var cert = fs.readFileSync(__dirname + "/certs/ssl.crt");
+var options = {
+  key: key,
+  cert: cert
+};*/
+
+//process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 
 // set up dependencies
 const app = express();
+
 app.use(bodyParser.json());
 app.use(logger("dev"));
 app.use("/api/", mainRoutes);
@@ -16,6 +28,8 @@ app.use(
     origin: "*"
   })
 );
+
+//var server = https.createServer(options, app);
 
 // set up mongoose
 mongoose
@@ -42,6 +56,7 @@ app.get("/authorise", (req, res) => {
   });
 });
 
-app.listen(port, () => {
-  console.log(`Our server is running on port ${port}`);
+//https.createServer(options, app).listen(443);
+app.listen(9090, err => {
+  console.log("Listening");
 });
