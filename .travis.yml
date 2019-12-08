@@ -10,10 +10,13 @@ script:
 
 after_success:
   - docker build -t santhu538/betmycricket .
+  - docker build -t santhu538/betmycricket-nginx ./nginx
+
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
   - docker push santhu538/betmycricket
+  - docker push santhu538/betmycricket-nginx
 deploy:
   provider: elasticbeanstalk
   region: us-west-1
