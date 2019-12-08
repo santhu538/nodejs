@@ -45,7 +45,7 @@ const port = 9090;
 // set up route
 app.get("/", (req, res) => {
   res.status(200).json({
-    message: "Welcome to BetMyGame"
+    message: "BetMyCricket services"
   });
 });
 
