@@ -51,12 +51,14 @@ app.get("/", (req, res) => {
 
 app.get("/authorise", (req, res) => {
   const token = req.header("Authorization");
+  console.log("Got access token " + token);
   res.status(200).json({
     message: "Got your token " + token + ". Thanks dude."
   });
 });
 
-//https.createServer(options, app).listen(443);
+/*https.createServer(options, app).listen(443);*/
+
 app.listen(9090, err => {
   console.log("Listening");
 });
